@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A mini-encyclopedia of Pokémon species, types, evolutions, and moves."
+    />
+    <meta
+      name="author"
+      content="Alexsander Lopes Camargos - alcamargos@vivaldi.net - https://alcamargos.me"
+    />
+
+    <link
+      rel="shortcut icon"
+      href="assets/img/favicon.ico"
+      type="image/x-icon"
+    />
+
+    <title>JavaScript Pokédex</title>
+  </head>
+  <body>
+    <!-- START: Fullpage Container -->
+    <div class="container">
+      <!-- START: Main -->
+      <main>
+        <!-- START: Main Container -->
+        <div class="container">
+          <!-- START: Title -->
+          <div class="title">
+            <h1>JavaScript Pokédex</h1>
+          </div>
+          <!-- END: Title -->
+
+          <!-- START: Section Filter -->
+          <section class="filter">
+            <input type="search" name="search-pokemon" id="search-pokemon" />
+          </section>
+          <!-- END: Section Filter -->
+
+          <!-- START: Section Pokédex Result's -->
+          <section class="pokedex-results">
+            <!-- START: Pokédex Result's Container -->
+            <div class="pokedex-results__container">
+              <!-- START: Pokemon List -->
+              <ul class="pokemons-list">
+                <!-- START: Pokemon Card -->
+                <li class="pokemon">
+                  <!-- START: Pokemon Card Container -->
+                  <div class="pokemon-Container">
+                    <!-- START: Pokemon Card Image -->
+                    <div class="pokemon-image">
+                      <img
+                        src="https://via.placeholder.com/205"
+                        alt="Bulbasaur"
+                      />
+                    </div>
+                    <!-- END: Pokemon Card Image -->
+
+                    <!-- START: Pokemon Card Information -->
+                    <div class="pokemon-info">
+                      <!-- Pokemon Identifier -->
+                      <p class="pokemon-id">
+                        <span class="number-prefix">Nº&nbsp;</span>001
+                      </p>
+                      <!-- Pokemon Name -->
+                      <h5>Bulbasaur</h5>
+
+                      <!-- START: Pokemon Card Abilities -->
+                      <div class="abilities">
+                        <span class="pill background-color-grass">Grass</span>
+                      </div>
+                      <div class="abilities">
+                        <span class="pill background-color-poison">Poison</span>
+                      </div>
+                      <!-- END: Pokemon Card Abilities -->
+                    </div>
+                    <!-- END: Pokemon Card Information -->
+                  </div>
+                  <!-- END: Pokemon Card Container -->
+                </li>
+                <!-- END: Pokemon Card -->
+              </ul>
+              <!-- END: Pokemon List -->
+            </div>
+            <!-- END: Pokédex Result's Container -->
+          </section>
+          <!-- END: Section Pokédex Result's -->
+
+          <!-- START: Section Load More -->
+          <section class="load-more">
+            <button id="load-more">Carregar mais Pokémon</button>
+          </section>
+        </div>
+        <!-- END: Main Container -->
+      </main>
+      <!-- END: Main -->
+    </div>
+    <!-- END: Fullpage Container -->
+  </body>
+</html>
