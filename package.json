@@ -1,0 +1,25 @@
+{
+  "name": "pokedex-js",
+  "version": "0.0.1",
+  "description": "A mini-encyclopedia of Pokémon species, types, evolutions, and moves.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexsander Lopes Camargos <alcamargos@vivaldi.net> (https://alcamargos.me/)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexcamargos/JavaScript-Pokedex"
+  },
+  "homepage": "https://jspokedex-pokeapi.netlify.app",
+  "license": "The MIT License (MIT)",
+  "keywords": [
+    "JavaScript",
+    "Sass",
+    "HTML",
+    "Fetch API",
+    "PokeAPI",
+    "Pokémon",
+    "Pokedex"
+  ]
+}
