@@ -19,15 +19,17 @@
       type="image/x-icon"
     />
 
+    <link rel="stylesheet" href="assets/css/main.css" />
+
     <title>JavaScript Pokédex</title>
   </head>
   <body>
-    <!-- START: Fullpage Container -->
-    <div class="container">
+    <!-- START: Full Page Container -->
+    <div class="fullpage-container">
       <!-- START: Main -->
       <main>
         <!-- START: Main Container -->
-        <div class="container">
+        <div class="main-container">
           <!-- START: Title -->
           <div class="title">
             <h1>JavaScript Pokédex</h1>
@@ -36,6 +38,7 @@
 
           <!-- START: Section Filter -->
           <section class="filter">
+            <p>Nome ou número</p>
             <input type="search" name="search-pokemon" id="search-pokemon" />
           </section>
           <!-- END: Section Filter -->
@@ -43,7 +46,7 @@
           <!-- START: Section Pokédex Result's -->
           <section class="pokedex-results">
             <!-- START: Pokédex Result's Container -->
-            <div class="pokedex-results__container">
+            <div class="pokedex-results_container">
               <!-- START: Pokemon List -->
               <ul class="pokemons-list">
                 <!-- START: Pokemon Card -->
@@ -61,23 +64,22 @@
 
                     <!-- START: Pokemon Card Information -->
                     <div class="pokemon-info">
+                      <!-- Pokemon Name -->
+                      <p class="pokemon-name">Bulbasaur</p>
+
                       <!-- Pokemon Identifier -->
                       <p class="pokemon-id">
                         <span class="number-prefix">Nº&nbsp;</span>001
                       </p>
-                      <!-- Pokemon Name -->
-                      <h5>Bulbasaur</h5>
-
-                      <!-- START: Pokemon Card Abilities -->
-                      <div class="abilities">
-                        <span class="pill background-color-grass">Grass</span>
-                      </div>
-                      <div class="abilities">
-                        <span class="pill background-color-poison">Poison</span>
-                      </div>
-                      <!-- END: Pokemon Card Abilities -->
                     </div>
                     <!-- END: Pokemon Card Information -->
+
+                    <!-- START: Pokemon Card Abilities -->
+                    <div class="pokemon-abilities">
+                      <span class="pill background-color-grass">Grass</span>
+                      <span class="pill background-color-poison">Poison</span>
+                    </div>
+                    <!-- END: Pokemon Card Abilities -->
                   </div>
                   <!-- END: Pokemon Card Container -->
                 </li>

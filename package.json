@@ -4,7 +4,8 @@
   "description": "A mini-encyclopedia of Pokémon species, types, evolutions, and moves.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sass-build": "sass source/assets/sass/main.scss:source/assets/css/main.css --style compressed",
+    "sass-watch": "sass --watch source/assets/sass/main.scss:source/assets/css/main.css"
   },
   "author": "Alexsander Lopes Camargos <alcamargos@vivaldi.net> (https://alcamargos.me/)",
   "repository": {
@@ -21,5 +22,9 @@
     "PokeAPI",
     "Pokémon",
     "Pokedex"
-  ]
+  ],
+  "dependencies": {
+    "normalize.css": "^8.0.1",
+    "sass": "^1.56.0"
+  }
 }
