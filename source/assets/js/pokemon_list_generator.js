@@ -81,8 +81,3 @@ function createPokemonList(pokemons) {
         pokemonList.appendChild(pokemonCard);
     });
 }
-
-// ao carregar a página, chamar a função createPokemonList
-window.addEventListener('load', () => {
-    createPokemonList(pokemons);
-});

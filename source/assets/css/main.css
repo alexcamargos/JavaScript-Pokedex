@@ -52,7 +52,7 @@
   background-color: #b8a038 !important;
 }
 
-.type-goast {
+.type-ghost {
   background-color: #705898 !important;
 }
 
@@ -289,6 +289,12 @@ body {
 }
 .fullpage-container .main-container .load-more button:hover {
   background-color: #1b82b1;
+}
+.fullpage-container .main-container .load-more button:disabled, .fullpage-container .main-container .load-more button[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: default;
 }
 
 /*# sourceMappingURL=main.css.map */
