@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 // Name: main.scss
-// Version: 0.0.1
+// Version: 0.0.2
 //
 // Summary: JavaScript Pokedex
 //
@@ -14,7 +14,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
-@import './pokeon-types';
+@import './theme/pokemon-types';
+
+@import './animation';
 
 body {
   height: 100vh;
@@ -22,61 +24,6 @@ body {
   margin: 0;
   background: #fff url(../img/body_bg.png) repeat;
   font-family: 'Roboto', sans-serif;
-}
-
-@-webkit-keyframes jump {
-  0% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-  20% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-  40% {
-    -webkit-transform: translateY(-30px);
-    transform: translateY(-30px);
-  }
-  50% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-  60% {
-    -webkit-transform: translateY(-15px);
-    transform: translateY(-15px);
-  }
-  80% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-
-@keyframes jump {
-  0% {
-    transform: translateY(0);
-  }
-  20% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-30px);
-  }
-  50% {
-    transform: translateY(0);
-  }
-  60% {
-    transform: translateY(-15px);
-  }
-  80% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(0);
-  }
 }
 
 .fullpage-container {
@@ -170,10 +117,10 @@ body {
           color: #fff;
 
           &:hover {
-            -webkit-animation: jump 1s ease 0s normal;
-            -moz-animation: jump 1s ease 0s normal;
-            -ms-animation: jump 1s ease 0s normal;
-            animation: jump 1s ease 0s normal;
+            -webkit-animation: jump 0.666s ease 0s normal;
+            -moz-animation: jump 0.666s ease 0s normal;
+            -ms-animation: jump 0.666s ease 0s normal;
+            animation: jump 0.666s ease 0s normal;
           }
 
           &-image {

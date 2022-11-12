@@ -72,14 +72,6 @@
   background-color: #f0b6bc !important;
 }
 
-body {
-  height: 100vh;
-  width: 100%;
-  margin: 0;
-  background: #fff url(../img/body_bg.png) repeat;
-  font-family: "Roboto", sans-serif;
-}
-
 @-webkit-keyframes jump {
   0% {
     -webkit-transform: translateY(0);
@@ -90,16 +82,16 @@ body {
     transform: translateY(0);
   }
   40% {
-    -webkit-transform: translateY(-30px);
-    transform: translateY(-30px);
+    -webkit-transform: translateY(-24px);
+    transform: translateY(-24px);
   }
   50% {
     -webkit-transform: translateY(0);
     transform: translateY(0);
   }
   60% {
-    -webkit-transform: translateY(-15px);
-    transform: translateY(-15px);
+    -webkit-transform: translateY(-12px);
+    transform: translateY(-12px);
   }
   80% {
     -webkit-transform: translateY(0);
@@ -118,13 +110,13 @@ body {
     transform: translateY(0);
   }
   40% {
-    transform: translateY(-30px);
+    transform: translateY(-24px);
   }
   50% {
     transform: translateY(0);
   }
   60% {
-    transform: translateY(-15px);
+    transform: translateY(-12px);
   }
   80% {
     transform: translateY(0);
@@ -133,6 +125,14 @@ body {
     transform: translateY(0);
   }
 }
+body {
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  background: #fff url(../img/body_bg.png) repeat;
+  font-family: "Roboto", sans-serif;
+}
+
 .fullpage-container {
   background: #fff url(../img/container_bg.png) repeat;
   max-width: 1200px;
@@ -221,10 +221,10 @@ body {
   color: #fff;
 }
 .fullpage-container .main-container .pokedex-results .pokemons-list .pokemon:hover {
-  -webkit-animation: jump 1s ease 0s normal;
-  -moz-animation: jump 1s ease 0s normal;
-  -ms-animation: jump 1s ease 0s normal;
-  animation: jump 1s ease 0s normal;
+  -webkit-animation: jump 0.666s ease 0s normal;
+  -moz-animation: jump 0.666s ease 0s normal;
+  -ms-animation: jump 0.666s ease 0s normal;
+  animation: jump 0.666s ease 0s normal;
 }
 .fullpage-container .main-container .pokedex-results .pokemons-list .pokemon-image {
   width: 100%;
