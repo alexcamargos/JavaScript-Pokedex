@@ -1,4 +1,4 @@
-const POKEAPI_LIMIT = 3; // Quantity of pokemons per request.
+const POKEAPI_LIMIT = 8; // Quantity of pokemons per request.
 const MAX_RECORDS = 151; // Quantity of pokemons to load of PokeAPI.
 
 const loadMoreButton = document.getElementById('load-more');
