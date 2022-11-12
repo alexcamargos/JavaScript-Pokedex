@@ -75,6 +75,7 @@
 body {
   height: 100vh;
   width: 100%;
+  margin: 0;
   background: #fff url(../img/body_bg.png) repeat;
   font-family: "Roboto", sans-serif;
 }
