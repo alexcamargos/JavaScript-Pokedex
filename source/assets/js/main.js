@@ -1,3 +1,15 @@
+// -------------------------------------------------------------------------------------------------
+// Name: main.js
+// Version: 0.0.1
+//
+// Summary: JavaScript Pokedex
+//
+// Author: Alexsander Lopes Camargos
+// Author-email: alcamargos@vivaldi.net
+//
+// License: MIT
+// -------------------------------------------------------------------------------------------------
+
 const POKEAPI_LIMIT = 8; // Quantity of pokemons per request.
 const MAX_RECORDS = 151; // Quantity of pokemons to load of PokeAPI.
 

@@ -1,3 +1,15 @@
+// -------------------------------------------------------------------------------------------------
+// Name: pokemon.js
+// Version: 0.0.1
+//
+// Summary: JavaScript Pokedex
+//
+// Author: Alexsander Lopes Camargos
+// Author-email: alcamargos@vivaldi.net
+//
+// License: MIT
+// -------------------------------------------------------------------------------------------------
+
 class Pokemon {
     constructor(name, id, image, types, hp, attack, defense, speed) {
         this.name = name;

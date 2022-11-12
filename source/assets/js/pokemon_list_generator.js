@@ -1,3 +1,15 @@
+// -------------------------------------------------------------------------------------------------
+// Name: pokemon_list_generator.js
+// Version: 0.0.1
+//
+// Summary: JavaScript Pokedex
+//
+// Author: Alexsander Lopes Camargos
+// Author-email: alcamargos@vivaldi.net
+//
+// License: MIT
+// -------------------------------------------------------------------------------------------------
+
 function createPokemonCard(pokemon) {
     let li = document.createElement('li');
     li.classList.add('pokemon');
