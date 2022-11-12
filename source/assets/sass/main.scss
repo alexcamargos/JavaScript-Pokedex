@@ -2,6 +2,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
+@import './pokeon-types';
+
 body {
   height: 100vh;
   width: 100%;
@@ -152,6 +154,7 @@ body {
           border-radius: 0.5rem;
           padding: 0.5rem;
           transition: all 0.3s ease-in-out;
+          color: #fff;
 
           &:hover {
             -webkit-animation: jump 1s ease 0s normal;
@@ -182,18 +185,36 @@ body {
           &-info {
             display: flex;
             justify-content: space-between;
+            align-items: flex-end;
           }
 
           &-name {
             margin: 0.5rem 0;
             font-weight: 600;
             font-size: 1.25rem;
-            color: #919191;
+            text-transform: capitalize;
+          }
+
+          &-id {
+            opacity: 0.666;
+            align-self: baseline;
+            margin: 0;
           }
 
           &-types {
             display: flex;
             justify-content: space-evenly;
+            border-radius: 1rem;
+            background-color: rgba(0, 0, 0, 0.15);
+
+            .pill {
+              line-height: 28px;
+              max-width: 110px;
+              width: 30%;
+              text-align: center;
+              font-weight: 700;
+              text-transform: capitalize;
+            }
           }
         }
       }

@@ -1,6 +1,7 @@
-function createPokemonCard() {
+function createPokemonCard(pokemon) {
     let li = document.createElement('li');
     li.classList.add('pokemon');
+    li.classList.add(`type-${pokemon.types[0]}`);
 
     return li;
 }
@@ -53,7 +54,7 @@ function createPokemonTypes(pokemon) {
 }
 
 function createPokemon(pokemon) {
-    let pokemonCard = createPokemonCard();
+    let pokemonCard = createPokemonCard(pokemon);
 
     let pokemonContainer = document.createElement('div');
     pokemonContainer.classList.add('pokemon-container');
