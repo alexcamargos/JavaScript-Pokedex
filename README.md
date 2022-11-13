@@ -14,7 +14,7 @@ APIs são mecanismos que permitem que dois componentes de software se comuniquem
 
 ## View Project in Execution
 
-You can check this website on this :globe_with_meridians: [link](https://#).
+You can check this website on this :globe_with_meridians: [link](https://jspokedex-pokeapi.netlify.app).
 
 ## Technologies
 
