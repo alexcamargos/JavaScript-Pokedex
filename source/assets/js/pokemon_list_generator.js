@@ -15,6 +15,10 @@ function createPokemonCard(pokemon) {
     li.classList.add('pokemon');
     li.classList.add(`type-${pokemon.types[0]}`);
 
+    li.addEventListener('click', () => {
+        pokemonDialog.show();
+    });
+
     return li;
 }
 

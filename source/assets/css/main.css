@@ -298,7 +298,7 @@ body {
   cursor: default;
 }
 
-#dialog {
+#pokemon-dialog {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -315,11 +315,11 @@ body {
   z-index: 900;
 }
 @media (min-width: 450px) {
-  #dialog {
+  #pokemon-dialog {
     margin: 2rem auto;
   }
 }
-#dialog .pokemon-container {
+#pokemon-dialog .pokemon-container {
   display: flex;
   flex-direction: column;
   gap: 4rem;
@@ -329,40 +329,40 @@ body {
   background-color: #fff;
   min-width: 400px;
 }
-#dialog .pokemon-information {
+#pokemon-dialog .pokemon-information {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-#dialog .pokemon-information .title {
+#pokemon-dialog .pokemon-information .title {
   display: flex;
   align-items: baseline;
   gap: 5rem;
   color: #313131;
 }
-#dialog .pokemon-information .title span {
+#pokemon-dialog .pokemon-information .title span {
   font-size: 1.5rem;
   font-weight: 500;
   text-transform: capitalize;
   color: #919191;
 }
-#dialog .pokemon-stats {
+#pokemon-dialog .pokemon-stats {
   padding: 1rem;
   background-color: #ccc;
   border-radius: 0.5rem;
   min-width: 350px;
 }
 @media (min-width: 600px) {
-  #dialog .pokemon-stats {
+  #pokemon-dialog .pokemon-stats {
     padding: 2rem;
   }
 }
-#dialog .pokemon-stats .title {
+#pokemon-dialog .pokemon-stats .title {
   margin-bottom: 1rem;
   font-size: 1rem;
   font-weight: 700;
 }
-#dialog .pokemon-stats ul {
+#pokemon-dialog .pokemon-stats ul {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   list-style: none;
@@ -370,90 +370,90 @@ body {
   padding: 0;
 }
 @media (min-width: 450px) {
-  #dialog .pokemon-stats ul {
+  #pokemon-dialog .pokemon-stats ul {
     grid-template-columns: repeat(6, 2fr);
   }
 }
 @media (min-width: 650px) {
-  #dialog .pokemon-stats ul {
+  #pokemon-dialog .pokemon-stats ul {
     grid-template-columns: repeat(6, 3fr);
   }
 }
-#dialog .pokemon-stats ul li {
+#pokemon-dialog .pokemon-stats ul li {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
 }
-#dialog .pokemon-stats ul li span {
+#pokemon-dialog .pokemon-stats ul li span {
   height: 0.5rem;
   width: 2rem;
   background-color: #fff;
 }
 @media (min-width: 600px) {
-  #dialog .pokemon-stats ul li span {
+  #pokemon-dialog .pokemon-stats ul li span {
     width: 3rem;
   }
 }
-#dialog .pokemon-stats ul li span.hp {
+#pokemon-dialog .pokemon-stats ul li span.hp {
   background-color: #30a7d7;
 }
-#dialog .pokemon-stats ul li h4 {
+#pokemon-dialog .pokemon-stats ul li h4 {
   margin-top: 0.125rem;
   margin-bottom: 0;
   font-size: 0.5rem;
   text-align: center;
   max-width: 30px;
 }
-#dialog .pokemon-data {
+#pokemon-dialog .pokemon-data {
   padding: 1rem;
   border-radius: 0.5rem;
   background-color: #30a7d7;
   color: #fff;
   min-width: 350px;
 }
-#dialog .pokemon-data .title {
+#pokemon-dialog .pokemon-data .title {
   margin-bottom: 1rem;
   font-size: 1rem;
   font-weight: 700;
 }
-#dialog .pokemon-data ul {
+#pokemon-dialog .pokemon-data ul {
   columns: 2;
   list-style: none;
 }
-#dialog .pokemon-data ul li {
+#pokemon-dialog .pokemon-data ul li {
   display: flex;
   flex-direction: column;
 }
-#dialog .pokemon-data ul li span {
+#pokemon-dialog .pokemon-data ul li span {
   margin: 0.5rem 0;
 }
-#dialog .pokemon-data ul li span:first-child {
+#pokemon-dialog .pokemon-data ul li span:first-child {
   font-weight: 700;
   text-transform: capitalize;
   font-size: 1.5rem;
 }
-#dialog .pokemon-data ul li span:last-child {
+#pokemon-dialog .pokemon-data ul li span:last-child {
   margin-top: 0.5rem;
   font-size: 1rem;
   text-transform: capitalize;
   color: #313131;
 }
-#dialog .pokemon-types {
+#pokemon-dialog .pokemon-types {
   padding: 1rem;
   border-radius: 0.5rem;
   min-width: 350px;
 }
-#dialog .pokemon-types .title {
+#pokemon-dialog .pokemon-types .title {
   margin-bottom: 1rem;
   font-size: 1rem;
   font-weight: 700;
 }
-#dialog .pokemon-types ul {
+#pokemon-dialog .pokemon-types ul {
   columns: 2;
   list-style: none;
 }
-#dialog .pokemon-types ul li {
+#pokemon-dialog .pokemon-types ul li {
   padding: 0.5em 0;
   line-height: 100%;
   width: 100%;
@@ -462,7 +462,7 @@ body {
   color: #fff;
 }
 
-.overlay {
+.dialog-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -474,13 +474,13 @@ body {
   z-index: -1;
   transition: visibility z-index 300ms ease-in-out;
 }
-.overlay.active {
+.dialog-overlay.active {
   visibility: visible;
   width: 100%;
   height: 100%;
   z-index: 500;
 }
-.overlay .back-button {
+.dialog-overlay .back-button {
   width: 36px;
   height: 36px;
   margin: 1rem;
@@ -490,7 +490,7 @@ body {
   background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgdmlld0JveD0iMCAwIDM2IDM2Ij48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMzAgMTYuNUgxMS43NGw4LjM4LTguMzhMMTggNiA2IDE4bDEyIDEyIDIuMTItMi4xMi04LjM4LTguMzhIMzB2LTN6Ii8+PC9zdmc+") no-repeat center;
   cursor: pointer;
 }
-.overlay .back-button:hover {
+.dialog-overlay .back-button:hover {
   background-color: #313131;
   opacity: 0.8;
   border: 1px solid #fff;

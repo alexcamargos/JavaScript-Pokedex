@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 // Name: main.js
-// Version: 0.0.1
+// Version: 0.0.2
 //
 // Summary: JavaScript Pokedex
 //
@@ -17,16 +17,26 @@ const loadMoreButton = document.getElementById('load-more');
 
 let POKEAPI_OFFSET = 0; // Offset of the first request.
 
+const pokemonDialog = {
+    dialog: document.getElementById('pokemon-dialog'),
+    dialogOverlay: document.getElementById('dialog-overlay'),
+
+    show: function () {
+        this.dialog.show();
+        this.dialogOverlay.classList.add('active');
+    },
+
+    hide: function () {
+        this.dialog.close();
+        this.dialogOverlay.classList.remove('active');
+    },
+};
+
 async function loadPokemons(offset, limit) {
     pokeAPI.getPokemons(offset, limit).then((pokemons) => {
         createPokemonList(pokemons);
     });
 }
-
-// ao carregar a página, chamar a função createPokemonList
-window.addEventListener('load', async () => {
-    await loadPokemons();
-});
 
 async function doPokeAPIRequest() {
     POKEAPI_OFFSET += POKEAPI_LIMIT;
@@ -43,6 +53,11 @@ async function doPokeAPIRequest() {
     }
 }
 
+// ao carregar a página, chamar a função createPokemonList
+window.addEventListener('load', async () => {
+    await loadPokemons();
+});
+
 loadMoreButton.addEventListener('click', async () => {
     doPokeAPIRequest();
 });
@@ -55,3 +70,11 @@ loadMoreButton.addEventListener('click', async () => {
 //         doPokeAPIRequest();
 //     }
 // });
+
+document.getElementById('dialog-overlay').addEventListener('click', () => {
+    pokemonDialog.hide();
+});
+
+document.querySelector('div.back-button').addEventListener('click', () => {
+    pokemonDialog.hide();
+});
