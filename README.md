@@ -16,6 +16,8 @@ APIs são mecanismos que permitem que dois componentes de software se comuniquem
 
 You can check this website on this :globe_with_meridians: [link](https://jspokedex-pokeapi.netlify.app).
 
+![JavaScript Pokedex](jspokedex.jpg)
+
 ## Technologies
 
 - HTML5
