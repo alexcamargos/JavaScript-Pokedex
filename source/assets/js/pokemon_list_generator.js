@@ -10,18 +10,22 @@
 // License: MIT
 // -------------------------------------------------------------------------------------------------
 
+// Cria o card do Pokemon.
 function createPokemonCard(pokemon) {
     let li = document.createElement('li');
     li.classList.add('pokemon');
     li.classList.add(`type-${pokemon.types[0]}`);
 
+    // Adiciona o evento de click no card do Pokemon.
+    // Ao clicar no card, exibe o dialog com as informações do Pokemon.
     li.addEventListener('click', () => {
-        pokemonDialog.show(pokemonTeste);
+        pokemonDialog.show(pokemonsList.searchPokemon(pokemon.id));
     });
 
     return li;
 }
 
+// Cria a imagem do Pokemon.
 function createPokemonImage(pokemon) {
     let div = document.createElement('div');
     div.classList.add('pokemon-image');
@@ -35,6 +39,7 @@ function createPokemonImage(pokemon) {
     return div;
 }
 
+// Cria as informações básicas do Pokemon.
 function createPokemonInformation(pokemon) {
     let div = document.createElement('div');
     div.classList.add('pokemon-info');
@@ -53,6 +58,7 @@ function createPokemonInformation(pokemon) {
     return div;
 }
 
+// Cria os tipos do Pokemon.
 function createPokemonTypes(pokemon) {
     let div = document.createElement('div');
     div.classList.add('pokemon-types');
@@ -69,6 +75,7 @@ function createPokemonTypes(pokemon) {
     return div;
 }
 
+// Cria um campo de exibição de Pokemon.
 function createPokemon(pokemon) {
     let pokemonCard = createPokemonCard(pokemon);
 
@@ -88,10 +95,12 @@ function createPokemon(pokemon) {
     return pokemonCard;
 }
 
+// Cria e exibe a lista de Pokemons.
 function createPokemonList(pokemons) {
     // selecionar o elemento pela classe pokemons-list
     let pokemonList = document.querySelector('.pokemons-list');
 
+    // Para cada pokemon, criar um card e adicionar na lista
     pokemons.forEach((pokemon) => {
         let pokemonCard = createPokemon(pokemon);
         pokemonList.appendChild(pokemonCard);

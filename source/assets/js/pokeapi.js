@@ -12,6 +12,7 @@
 
 const pokeAPI = {};
 
+// Convert the PokeAPI Pokemon to a Pokemon Object.
 function convertPokeApiToPokemon(pokeApiData) {
     const pokemon = new Pokemon();
 
@@ -30,16 +31,22 @@ function convertPokeApiToPokemon(pokeApiData) {
     pokemon.height = pokeApiData.height;
     pokemon.weight = pokeApiData.weight;
 
+    // Add the Pokemon to the list.
+    pokemonsList.addPokemon(pokemon);
+
     return pokemon;
 }
 
+// Request the Pokemon detail from PokeAPI.
 pokeAPI.getPokemonDetail = (pokemon) => {
     return fetch(pokemon.url)
         .then((response) => response.json())
         .then(convertPokeApiToPokemon);
 };
 
+// Request the Pokemon list from PokeAPI.
 pokeAPI.getPokemons = (offset = POKEAPI_OFFSET, limit = POKEAPI_LIMIT) => {
+    // Requisition points to the PokeAPI.
     const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
 
     return fetch(url)

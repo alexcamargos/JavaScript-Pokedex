@@ -12,84 +12,87 @@
 
 const POKEAPI_LIMIT = 8; // Quantity of pokemons per request.
 const MAX_RECORDS = 151; // Quantity of pokemons to load of PokeAPI.
+let POKEAPI_OFFSET = 0; // Offset of the first request.
 
 const loadMoreButton = document.getElementById('load-more');
 
-let POKEAPI_OFFSET = 0; // Offset of the first request.
+// Armazena informações dos Pokemons.
+let pokemonsList = {
+    pokemons: [], // Lista de Pokemons.
 
-let pokemonTeste = {
-    id: 1,
-    name: 'Bulbasaur',
-    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg',
-    types: ['grass', 'poison'],
-    height: 7,
-    weight: 69,
-    abilities: ['overgrow', 'chlorophyll'],
-    vitality: 45,
-    attack: 49,
-    defense: 49,
-    speed: 45,
-    specialAttack: 65,
-    specialDefense: 65,
-    category: 'seed',
+    addPokemon: function (pokemon) {
+        // Adiciona um Pokemon na lista.
+        this.pokemons.push(pokemon);
+    },
+
+    searchPokemon: function (id) {
+        // Busca um Pokemon pelo ID.
+        return this.pokemons.find((pokemon) => pokemon.id === id);
+    },
 };
 
+// Pokemon Dialog Object.
 let pokemonDialog = {
-    dialog: document.getElementById('pokemon-dialog'),
-    dialogOverlay: document.getElementById('dialog-overlay'),
+    dialog: document.getElementById('pokemon-dialog'), // Dialog element.
+    dialogOverlay: document.getElementById('dialog-overlay'), // Dialog overlay element.
 
+    // Show the dialog.
     show: function (pokemon) {
-        // TODO: Usando dados de teste.
-        populateDialog(pokemon);
+        populateDialog(pokemon); // Populate the dialog with the Pokemon information.
 
         this.dialog.show();
         this.dialogOverlay.classList.add('active');
     },
 
+    // Hide the dialog.
     hide: function () {
         this.dialog.close();
         this.dialogOverlay.classList.remove('active');
     },
 };
 
+// Load the firsts pokemons.
 async function loadPokemons(offset, limit) {
     pokeAPI.getPokemons(offset, limit).then((pokemons) => {
         createPokemonList(pokemons);
     });
 }
 
+// Do the request to PokeAPI.
 async function doPokeAPIRequest() {
     POKEAPI_OFFSET += POKEAPI_LIMIT;
-
     const quantityNextRequest = POKEAPI_OFFSET + POKEAPI_LIMIT;
+
     if (quantityNextRequest >= MAX_RECORDS) {
         const newLimit = MAX_RECORDS - POKEAPI_OFFSET;
 
         await loadPokemons(POKEAPI_OFFSET, newLimit);
 
-        loadMoreButton.disabled = true;
+        loadMoreButton.disabled = true; // Disable the load more button.
     } else {
         await loadPokemons(POKEAPI_OFFSET, POKEAPI_LIMIT);
     }
 }
 
-// ao carregar a página, chamar a função createPokemonList
+// Quando a página carregar, carrega os primeiros Pokemons.
 window.addEventListener('load', async () => {
     await loadPokemons();
 });
 
+// Quando o usuário clicar no botão de carregar mais Pokemons, carrega mais Pokemons.
 loadMoreButton.addEventListener('click', async () => {
     doPokeAPIRequest();
 });
 
-// TODO: Desabilitado durante o desenvolvimento, para limitar a quantidade de requisições.
-// window.addEventListener('scroll', async () => {
-//     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+// Quando a página chegar ao final, carrega mais Pokemons.
+window.addEventListener('scroll', async () => {
+    // TODO: Desabilitado durante o desenvolvimento, para limitar a quantidade de requisições.
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
 
-//     if (clientHeight + scrollTop >= scrollHeight - 5) {
-//         doPokeAPIRequest();
-//     }
-// });
+    if (clientHeight + scrollTop >= scrollHeight - 5) {
+        doPokeAPIRequest();
+    }
+});
 
 document.getElementById('dialog-overlay').addEventListener('click', () => {
     pokemonDialog.hide();

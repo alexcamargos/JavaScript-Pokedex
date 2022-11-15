@@ -19,6 +19,7 @@
 
         <title>JavaScript Pokédex</title>
     </head>
+
     <body>
         <!-- START: Full Page Container -->
         <div class="fullpage-container">
@@ -66,61 +67,64 @@
         </div>
         <!-- END: Fullpage Container -->
 
+        <!-- START: Pokemon Dialog -->
         <dialog id="pokemon-dialog">
+            <!-- START: Pokemon Dialog Container -->
             <div class="dialog-container">
+                <!-- START: Pokemon Dialog Information -->
                 <div class="pokemon-information">
                     <div class="title">
-                        <h2 id="pokemon-name">Bulbasaur</h2>
-                        <span id="pokemon-id"># 001</span>
+                        <h2 id="pokemon-name"></h2>
+                        <span id="pokemon-id"></span>
                     </div>
-
+                    <!-- START: Pokemon Dialog Image -->
                     <picture>
-                        <img id="pokemon-image" src="https://via.placeholder.com/350" alt="Bulbasaur" />
+                        <img id="pokemon-image" src="" alt="" />
                     </picture>
+                    <!-- END: Pokemon Dialog Image -->
                 </div>
+                <!-- END: Pokemon Dialog Information -->
 
+                <!-- START: Pokemon Dialog Stats -->
                 <div class="pokemon-stats">
                     <div class="title">Status</div>
                     <ul>
                         <li id="pokemon-vitality">
                             <!-- Pokemon vitality is inserted here by JavaScript -->
                         </li>
-
                         <li id="pokemon-attack">
                             <!-- Pokemon attack is inserted here by JavaScript -->
                         </li>
-
                         <li id="pokemon-defense">
                             <!-- Pokemon defense is inserted here by JavaScript -->
                         </li>
-
                         <li id="pokemon-speed">
                             <!-- Pokemon speed is inserted here by JavaScript -->
                         </li>
-
                         <li id="pokemon-special-attack">
                             <!-- Pokemon special attack is inserted here by JavaScript -->
                         </li>
-
                         <li id="pokemon-special-defense">
                             <!-- Pokemon special defense is inserted here by JavaScript -->
                         </li>
                     </ul>
                 </div>
+                <!-- END: Pokemon Dialog Stats -->
 
+                <!-- START: Pokemon Dialog Profile -->
                 <div class="pokemon-data">
-                    <div class="title">Dados</div>
+                    <div class="title">Profile</div>
                     <ul>
                         <li>
-                            <span>Altura</span>
+                            <span>Height</span>
                             <span id="pokemon-height"></span>
                         </li>
                         <li>
-                            <span>Peso</span>
+                            <span>Weight</span>
                             <span id="pokemon-weight"></span>
                         </li>
                         <li>
-                            <span>Categoria</span>
+                            <span>Category</span>
                             <span id="pokemon-category"></span>
                         </li>
                         <li id="pokemon-abilities">
@@ -128,30 +132,40 @@
                         </li>
                     </ul>
                 </div>
+                <!-- END: Pokemon Dialog Profile -->
 
+                <!-- START: Pokemon Dialog Types -->
                 <div class="pokemon-types">
-                    <div class="title">Tipos</div>
+                    <div class="title">Type</div>
                     <ul id="pokemon-types">
                         <!-- Pokemon types is inserted here by JavaScript -->
                     </ul>
                 </div>
+                <!-- END: Pokemon Dialog Types -->
             </div>
+            <!-- END: Pokemon Dialog Container -->
         </dialog>
+        <!-- END: Pokemon Dialog -->
 
+        <!-- START: Dialog Overlay -->
         <div id="dialog-overlay" class="dialog-overlay">
             <div class="back-button">
                 <span class="label"></span>
             </div>
         </div>
+        <!-- END: Dialog Overlay -->
 
+        <!-- START: JavaScript -->
+        <!-- Pokemon model -->
         <script src="assets/js/model/pokemon.js"></script>
-
+        <!-- PokeAPI request -->
         <script src="assets/js/pokeapi.js"></script>
-
+        <!-- Pokemons list generation -->
         <script src="assets/js/pokemon_list_generator.js"></script>
-
-        <script src="assets/js/pokemon_dialog.js"></script>
-
+        <!-- Pokemon dialog generation -->
+        <script src="assets/js/dialog.js"></script>
+        <!-- Main script -->
         <script src="assets/js/main.js"></script>
+        <!-- END: JavaScript -->
     </body>
 </html>

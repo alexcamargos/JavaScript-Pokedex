@@ -336,6 +336,7 @@ body {
   flex-direction: column;
   align-items: center;
   border-radius: 0.5rem;
+  padding: 1rem 1rem 2rem 1rem;
 }
 #pokemon-dialog .pokemon-information .title {
   display: flex;
@@ -343,11 +344,15 @@ body {
   gap: 5rem;
   color: #313131;
 }
+#pokemon-dialog .pokemon-information .title h2 {
+  text-transform: capitalize;
+}
 #pokemon-dialog .pokemon-information .title span {
   font-size: 1.5rem;
   font-weight: 500;
   text-transform: capitalize;
-  color: #919191;
+  color: #fff;
+  opacity: 0.6;
 }
 #pokemon-dialog .pokemon-stats {
   padding: 1rem;
@@ -430,17 +435,16 @@ body {
 }
 #pokemon-dialog .pokemon-data ul li span {
   margin: 0.5rem 0;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  text-transform: capitalize;
+  color: #313131;
 }
 #pokemon-dialog .pokemon-data ul li span:first-child {
   font-weight: 700;
   text-transform: capitalize;
   font-size: 1.5rem;
-}
-#pokemon-dialog .pokemon-data ul li span:last-child {
-  margin-top: 0.5rem;
-  font-size: 1rem;
-  text-transform: capitalize;
-  color: #313131;
+  color: #fff;
 }
 #pokemon-dialog .pokemon-types {
   padding: 1rem;
@@ -453,7 +457,11 @@ body {
   font-weight: 700;
 }
 #pokemon-dialog .pokemon-types ul {
-  columns: 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+  margin: 0;
+  padding: 1rem;
   list-style: none;
 }
 #pokemon-dialog .pokemon-types ul li {
