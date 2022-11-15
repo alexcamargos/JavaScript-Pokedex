@@ -56,3 +56,17 @@ pokeAPI.getPokemons = (offset = POKEAPI_OFFSET, limit = POKEAPI_LIMIT) => {
         .then((detailRequests) => Promise.all(detailRequests))
         .then((pokemonsDetails) => pokemonsDetails);
 };
+
+// Request a single Pokemon from PokeAPI.
+pokeAPI.searchPokemon = (pokemonName) => {
+    // Requisition points to the PokeAPI.
+    const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
+
+    return fetch(url)
+        .then((response) => response.json())
+        .then(convertPokeApiToPokemon)
+        .catch((error) => {
+            // If the Pokemon is not found, return null.
+            return false;
+        });
+};

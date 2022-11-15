@@ -36,7 +36,17 @@
                     <!-- START: Section Filter -->
                     <section class="filter">
                         <p>Nome ou número</p>
-                        <input type="search" name="search-pokemon" id="search-pokemon" />
+                        <!-- START - Search Input Container -->
+                        <div class="filter-container">
+                            <input type="search" name="search-pokemon" id="search-pokemon" />
+                            <button type="submit" name="search-button" id="search-button" disabled>
+                                Search
+                            </button>
+                        </div>
+                        <span id="search-error" class="hidden"
+                            >Please, enter a valid Pokémon name or number.
+                        </span>
+                        <!-- END - Search Input Container -->
                     </section>
                     <!-- END: Section Filter -->
 
@@ -55,11 +65,6 @@
                         <!-- END: Pokédex Result's Container -->
                     </section>
                     <!-- END: Section Pokédex Result's -->
-
-                    <!-- START: Section Load More -->
-                    <section class="load-more">
-                        <button id="load-more">Carregar mais Pokémon</button>
-                    </section>
                 </div>
                 <!-- END: Main Container -->
             </main>

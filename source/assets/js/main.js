@@ -25,9 +25,14 @@ let pokemonsList = {
         this.pokemons.push(pokemon);
     },
 
-    searchPokemon: function (id) {
+    searchPokemonByID: function (id) {
         // Busca um Pokemon pelo ID.
         return this.pokemons.find((pokemon) => pokemon.id === id);
+    },
+
+    searchPokemonByName: function (pokemonName) {
+        // Busca um Pokemon pelo nome.
+        return this.pokemons.find((pokemon) => pokemon.name === pokemonName);
     },
 };
 
@@ -74,14 +79,38 @@ async function doPokeAPIRequest() {
     }
 }
 
+// Realiza um requisição ao PokeAPI usando o nome do Pokemon.
+function searchPokemon() {
+    const searchInput = document.getElementById('search-pokemon');
+    const searchValue = searchInput.value.toLowerCase();
+
+    const searchResult = pokemonsList.searchPokemonByName(searchValue);
+
+    // Se o Pokemon ainda não foi requisitado, faz a requisição.
+    if (searchResult !== undefined) {
+        pokemonDialog.show(searchResult);
+    } else {
+        // Faça uma busca no PokeAPI.
+        pokeAPI.searchPokemon(searchValue).then((pokemon) => {
+            // If PokeAPi returns 404, the pokemon was not found.
+            let searchErrorSpan = document.getElementById('search-error');
+            if (pokemon) {
+                pokemonDialog.show(pokemon);
+                if (!searchErrorSpan.classList.contains('hidden')) {
+                    document.getElementById('search-error').classList.add('hidden');
+                }
+            } else {
+                if (searchErrorSpan.classList.contains('hidden')) {
+                    document.getElementById('search-error').classList.remove('hidden');
+                }
+            }
+        });
+    }
+}
+
 // Quando a página carregar, carrega os primeiros Pokemons.
 window.addEventListener('load', async () => {
     await loadPokemons();
-});
-
-// Quando o usuário clicar no botão de carregar mais Pokemons, carrega mais Pokemons.
-loadMoreButton.addEventListener('click', async () => {
-    doPokeAPIRequest();
 });
 
 // Quando a página chegar ao final, carrega mais Pokemons.
@@ -94,10 +123,38 @@ window.addEventListener('scroll', async () => {
     }
 });
 
+// Ativa o campo busca apos o usuário digitar algo.
+document.getElementById('search-pokemon').addEventListener('keyup', () => {
+    const searchButton = document.getElementById('search-button');
+
+    if (searchButton.disabled) {
+        searchButton.disabled = false;
+    }
+});
+
+// Quando o usuário clicar no botão de busca, busca o Pokemon.
+document.getElementById('search-button').addEventListener('click', () => {
+    searchPokemon();
+});
+
+// Quando o usuário clicar ENTER com o foco dentro do campo de busca, busca o Pokemon.
+document.getElementById('search-pokemon').addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        searchPokemon();
+    }
+});
+
+// Fecha o dialog overlay ao clicar fora da dialog.
 document.getElementById('dialog-overlay').addEventListener('click', () => {
     pokemonDialog.hide();
 });
-
+// Fecha o dialog overlay ao clicar no botão de voltar.
 document.querySelector('div.back-button').addEventListener('click', () => {
     pokemonDialog.hide();
+});
+// Fecha o dialog overlay ao clicar no no botão ESC.
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        pokemonDialog.hide();
+    }
 });

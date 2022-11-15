@@ -20,7 +20,7 @@ function createPokemonCard(pokemon) {
     // Adiciona o evento de click no card do Pokemon.
     // Ao clicar no card, exibe o dialog com as informações do Pokemon.
     li.addEventListener('click', () => {
-        pokemonDialog.show(pokemonsList.searchPokemon(pokemon.id));
+        pokemonDialog.show(pokemonsList.searchPokemonByID(pokemon.id));
     });
 
     return li;
