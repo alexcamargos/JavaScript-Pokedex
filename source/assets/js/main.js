@@ -54,7 +54,7 @@ let pokemonDialog = {
 // Load the firsts pokemons.
 async function loadPokemons(offset, limit) {
     pokeAPI.getPokemons(offset, limit).then((pokemons) => {
-        createPokemonList(pokemons);
+        renderPokemonList(pokemons);
     });
 }
 

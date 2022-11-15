@@ -1,8 +1,9 @@
 // -------------------------------------------------------------------------------------------------
-// Name: dialog.js
+// Name: render_dialog.js
 // Version: 0.0.1
 //
 // Summary: JavaScript Pokedex
+//         Renderiza o dialog com as informações do Pokemon.
 //
 // Author: Alexsander Lopes Camargos
 // Author-email: alcamargos@vivaldi.net

@@ -1,8 +1,9 @@
 // -------------------------------------------------------------------------------------------------
-// Name: pokemon_list_generator.js
+// Name: render_pokemons.js
 // Version: 0.0.1
 //
 // Summary: JavaScript Pokedex
+//         Renderiza a lista de Pokemons.
 //
 // Author: Alexsander Lopes Camargos
 // Author-email: alcamargos@vivaldi.net
@@ -96,7 +97,7 @@ function createPokemon(pokemon) {
 }
 
 // Cria e exibe a lista de Pokemons.
-function createPokemonList(pokemons) {
+function renderPokemonList(pokemons) {
     // selecionar o elemento pela classe pokemons-list
     let pokemonList = document.querySelector('.pokemons-list');
 
