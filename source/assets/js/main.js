@@ -17,11 +17,31 @@ const loadMoreButton = document.getElementById('load-more');
 
 let POKEAPI_OFFSET = 0; // Offset of the first request.
 
-const pokemonDialog = {
+let pokemonTeste = {
+    id: 1,
+    name: 'Bulbasaur',
+    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg',
+    types: ['grass', 'poison'],
+    height: 7,
+    weight: 69,
+    abilities: ['overgrow', 'chlorophyll'],
+    vitality: 45,
+    attack: 49,
+    defense: 49,
+    speed: 45,
+    specialAttack: 65,
+    specialDefense: 65,
+    category: 'seed',
+};
+
+let pokemonDialog = {
     dialog: document.getElementById('pokemon-dialog'),
     dialogOverlay: document.getElementById('dialog-overlay'),
 
-    show: function () {
+    show: function (pokemon) {
+        // TODO: Usando dados de teste.
+        populateDialog(pokemon);
+
         this.dialog.show();
         this.dialogOverlay.classList.add('active');
     },

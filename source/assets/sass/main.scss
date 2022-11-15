@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 // Name: main.scss
-// Version: 0.0.3
+// Version: 0.0.4
 //
 // Summary: JavaScript Pokedex
 //
@@ -235,7 +235,7 @@ body {
     margin: 2rem auto;
   }
 
-  .pokemon-container {
+  .dialog-container {
     display: flex;
     flex-direction: column;
     gap: 4rem;
@@ -244,12 +244,16 @@ body {
     padding: 1rem;
     background-color: $white;
     min-width: 400px;
+    border: 1px solid $gray-dark;
+
+    border-radius: 0.75rem;
   }
 
   .pokemon-information {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 0.5rem;
 
     .title {
       display: flex;
@@ -285,6 +289,7 @@ body {
     ul {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
+      align-items: baseline;
       list-style: none;
       margin: 0;
       padding: 0;
@@ -299,7 +304,7 @@ body {
 
       li {
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
         gap: 0.5rem;
 
@@ -312,7 +317,7 @@ body {
             width: 3rem;
           }
 
-          &.hp {
+          &.filled {
             background-color: $blue;
           }
         }
@@ -320,9 +325,8 @@ body {
         h4 {
           margin-top: 0.125rem;
           margin-bottom: 0;
-          font-size: 0.5rem;
+          font-size: 0.75rem;
           text-align: center;
-          max-width: 30px;
         }
       }
     }

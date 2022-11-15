@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 // Name: pokeapi.js
-// Version: 0.0.1
+// Version: 0.0.2
 //
 // Summary: JavaScript Pokedex
 //
@@ -19,10 +19,16 @@ function convertPokeApiToPokemon(pokeApiData) {
     pokemon.id = pokeApiData.id;
     pokemon.image = pokeApiData.sprites.other.dream_world.front_default;
     pokemon.types = pokeApiData.types.map((type) => type.type.name);
-    pokemon.hp = pokeApiData.stats[0].base_stat;
+    pokemon.vitality = pokeApiData.stats[0].base_stat;
     pokemon.attack = pokeApiData.stats[1].base_stat;
     pokemon.defense = pokeApiData.stats[2].base_stat;
     pokemon.speed = pokeApiData.stats[5].base_stat;
+    pokemon.specialAttack = pokeApiData.stats[3].base_stat;
+    pokemon.specialDefense = pokeApiData.stats[4].base_stat;
+    pokemon.abilities = pokeApiData.abilities.map((ability) => ability.ability.name);
+    pokemon.category = pokeApiData.species.name;
+    pokemon.height = pokeApiData.height;
+    pokemon.weight = pokeApiData.weight;
 
     return pokemon;
 }

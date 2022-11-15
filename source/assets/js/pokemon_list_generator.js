@@ -16,7 +16,7 @@ function createPokemonCard(pokemon) {
     li.classList.add(`type-${pokemon.types[0]}`);
 
     li.addEventListener('click', () => {
-        pokemonDialog.show();
+        pokemonDialog.show(pokemonTeste);
     });
 
     return li;
