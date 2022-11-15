@@ -223,11 +223,12 @@ button:disabled, button[disabled] {
   border: 1px solid #919191;
 }
 .fullpage-container .main-container .filter #search-error {
+  visibility: hidden;
   align-self: center;
   color: #e74c3c;
 }
-.fullpage-container .main-container .filter #search-error.hidden {
-  visibility: hidden;
+.fullpage-container .main-container .filter #search-error.show {
+  visibility: visible !important;
 }
 .fullpage-container .main-container .pokedex-results {
   margin-top: 4rem;

@@ -126,11 +126,12 @@ button {
       }
 
       #search-error {
+        visibility: hidden;
         align-self: center;
         color: $red;
 
-        &.hidden {
-          visibility: hidden;
+        &.show {
+          visibility: visible !important;
         }
       }
     }

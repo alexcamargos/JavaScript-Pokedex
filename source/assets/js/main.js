@@ -81,27 +81,35 @@ async function doPokeAPIRequest() {
 
 // Realiza um requisição ao PokeAPI usando o nome do Pokemon.
 function searchPokemon() {
-    const searchInput = document.getElementById('search-pokemon');
-    const searchValue = searchInput.value.toLowerCase();
-
-    const searchResult = pokemonsList.searchPokemonByName(searchValue);
+    let searchInput = document.getElementById('search-pokemon');
+    let searchValue = searchInput.value.toLowerCase();
+    let searchErrorSpan = document.getElementById('search-error');
+    let searchResult = pokemonsList.searchPokemonByName(searchValue);
 
     // Se o Pokemon ainda não foi requisitado, faz a requisição.
     if (searchResult !== undefined) {
+        // If searchErrorSpan is class show, remove it.
+        if (searchErrorSpan.classList.contains('show')) {
+            searchErrorSpan.classList.remove('show');
+        }
+
+        // Show the pokemon dialog.
         pokemonDialog.show(searchResult);
     } else {
         // Faça uma busca no PokeAPI.
         pokeAPI.searchPokemon(searchValue).then((pokemon) => {
-            // If PokeAPi returns 404, the pokemon was not found.
-            let searchErrorSpan = document.getElementById('search-error');
+            // If Pokemon was found.
             if (pokemon) {
-                pokemonDialog.show(pokemon);
-                if (!searchErrorSpan.classList.contains('hidden')) {
-                    document.getElementById('search-error').classList.add('hidden');
+                // If searchErrorSpan is class show, remove it.
+                if (searchErrorSpan.classList.contains('show')) {
+                    searchErrorSpan.classList.remove('show');
                 }
+                // Show the pokemon dialog.
+                pokemonDialog.show(pokemon);
             } else {
-                if (searchErrorSpan.classList.contains('hidden')) {
-                    document.getElementById('search-error').classList.remove('hidden');
+                // If searchErrorSpan is not class show, add it.
+                if (!searchErrorSpan.classList.contains('show')) {
+                    searchErrorSpan.classList.add('show');
                 }
             }
         });
