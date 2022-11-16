@@ -6,8 +6,7 @@
   "scripts": {
     "sass-build": "sass source/assets/sass/main.scss:source/assets/css/main.min.css --style compressed",
     "sass-watch": "sass --watch source/assets/sass/main.scss:source/assets/css/main.css",
-    "normalize": "cp node_modules/normalize.css/normalize.css source/assets/css/normalize.css",
-    "finish": "rm -rf build && mkdir build && npm run sass-build && cp -r source/* build/ && rm build/assets/css/main.css && rm build/assets/css/main.css.map"
+    "normalize": "cp node_modules/normalize.css/normalize.css source/assets/css/normalize.css"
   },
   "author": "Alexsander Lopes Camargos <alcamargos@vivaldi.net> (https://alcamargos.me/)",
   "repository": {
