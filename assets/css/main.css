@@ -529,4 +529,31 @@ button:disabled, button[disabled] {
   border: 1px solid #fff;
 }
 
+footer {
+  margin-top: 6rem;
+}
+footer a,
+footer a:visited {
+  color: #30a7d7;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+footer a:hover,
+footer a:visited:hover {
+  color: #1b82b1;
+  text-decoration: underline;
+}
+footer h4 {
+  margin-bottom: 0.333rem;
+}
+footer h4:nth-child(5) {
+  margin-top: 2rem;
+}
+footer #alicotas {
+  display: none;
+}
+footer #copyright {
+  text-align: center;
+}
+
 /*# sourceMappingURL=main.css.map */

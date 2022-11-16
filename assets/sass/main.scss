@@ -466,3 +466,35 @@ button {
     }
   }
 }
+
+footer {
+  margin-top: 6rem;
+
+  a,
+  a:visited {
+    color: $blue;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      color: $blue-dark;
+      text-decoration: underline;
+    }
+  }
+
+  h4 {
+    margin-bottom: 0.333rem;
+
+    &:nth-child(5) {
+      margin-top: 2rem;
+    }
+  }
+
+  #alicotas {
+    display: none;
+  }
+
+  #copyright {
+    text-align: center;
+  }
+}
