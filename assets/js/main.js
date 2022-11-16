@@ -14,8 +14,6 @@ const POKEAPI_LIMIT = 8; // Quantity of pokemons per request.
 const MAX_RECORDS = 151; // Quantity of pokemons to load of PokeAPI.
 let POKEAPI_OFFSET = 0; // Offset of the first request.
 
-const loadMoreButton = document.getElementById('load-more');
-
 // Armazena informações dos Pokemons.
 let pokemonsList = {
     pokemons: [], // Lista de Pokemons.
@@ -72,8 +70,6 @@ async function doPokeAPIRequest() {
         const newLimit = MAX_RECORDS - POKEAPI_OFFSET;
 
         await loadPokemons(POKEAPI_OFFSET, newLimit);
-
-        loadMoreButton.disabled = true; // Disable the load more button.
     } else {
         await loadPokemons(POKEAPI_OFFSET, POKEAPI_LIMIT);
     }
