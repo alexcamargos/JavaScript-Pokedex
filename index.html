@@ -25,7 +25,7 @@
             referrerpolicy="no-referrer"
         />
 
-        <link rel="stylesheet" href="assets/css/main.min.css" />
+        <link rel="stylesheet" href="assets/css/main.css" />
     </head>
 
     <body>
@@ -96,6 +96,10 @@
 
         <!-- START: Pokemon Dialog -->
         <dialog id="pokemon-dialog">
+            <!-- Close and Back button -->
+            <div class="back-button"></div>
+            <div class="close-button"></div>
+
             <!-- START: Pokemon Dialog Container -->
             <div class="dialog-container">
                 <!-- START: Pokemon Dialog Information -->
@@ -175,11 +179,7 @@
         <!-- END: Pokemon Dialog -->
 
         <!-- START: Dialog Overlay -->
-        <div id="dialog-overlay" class="dialog-overlay">
-            <div class="back-button">
-                <span class="label"></span>
-            </div>
-        </div>
+        <div id="dialog-overlay" class="dialog-overlay"></div>
         <!-- END: Dialog Overlay -->
 
         <!-- START: JavaScript -->

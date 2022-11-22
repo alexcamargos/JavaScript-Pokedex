@@ -156,6 +156,10 @@ document.getElementById('dialog-overlay').addEventListener('click', () => {
 document.querySelector('div.back-button').addEventListener('click', () => {
     pokemonDialog.hide();
 });
+// Fecha o dialog overlay ao clicar no botão de fechar.
+document.querySelector('div.close-button').addEventListener('click', () => {
+    pokemonDialog.hide();
+});
 // Fecha o dialog overlay ao clicar no no botão ESC.
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
