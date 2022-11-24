@@ -30,6 +30,8 @@ function convertPokeApiToPokemon(pokeApiData) {
     pokemon.category = pokeApiData.species.name;
     pokemon.height = pokeApiData.height;
     pokemon.weight = pokeApiData.weight;
+    pokemon.species = pokeApiData.species.url;
+    pokemon.evolutionChain = pokeAPI.getEvolutionChain(pokemon.species);
 
     // Add the Pokemon to the list.
     pokemonsList.addPokemon(pokemon);
@@ -44,21 +46,38 @@ pokeAPI.getPokemonDetail = (pokemon) => {
         .then(convertPokeApiToPokemon);
 };
 
+// Request the Pokemon evolution chain from PokeAPI.
+pokeAPI.getEvolutionChain = (speciesURL) => {
+    return fetch(speciesURL)
+        .then((response) => response.json())
+        .then((response) => response.evolution_chain.url)
+        .then((evolutionChainURL) => fetch(evolutionChainURL))
+        .then((response) => response.json())
+        .then((response) => response.chain)
+        .then((evolutionChain) => {
+            let evolutionPath = [];
+            evolutionPath.push(evolutionChain.species.name);
+            evolutionChain.evolves_to.forEach((evolution) => {
+                evolutionPath.push(evolution.species.name);
+                evolution.evolves_to.forEach((evolution) => {
+                    evolutionPath.push(evolution.species.name);
+                });
+            });
+            return evolutionPath;
+        });
+};
+
 // Request the Pokemon list from PokeAPI.
-pokeAPI.getPokemons = async (offset = POKEAPI_OFFSET, limit = POKEAPI_LIMIT) => {
+pokeAPI.getPokemons = (offset = POKEAPI_OFFSET, limit = POKEAPI_LIMIT) => {
     // Requisition points to the PokeAPI.
     const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
 
-    try {
-        const response = await fetch(url);
-        const data = await response.json();
-        const pokemons = data.results;
-        const detailRequests = pokemons.map(pokeAPI.getPokemonDetail);
-        const pokemonsDetails = await Promise.all(detailRequests);
-        return pokemonsDetails;
-    } catch (error) {
-        console.error(error);
-    }
+    return fetch(url)
+        .then((response) => response.json())
+        .then((data) => data.results)
+        .then((pokemons) => pokemons.map(pokeAPI.getPokemonDetail))
+        .then((detailRequests) => Promise.all(detailRequests))
+        .then((pokemonsDetails) => pokemonsDetails);
 };
 
 // Request a single Pokemon from PokeAPI.
