@@ -609,12 +609,16 @@ button:disabled, button[disabled] {
   font-weight: 700;
 }
 #pokemon-dialog .pokemon-data ul {
-  columns: 2;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
   list-style: none;
+  padding: 1rem 0;
 }
 #pokemon-dialog .pokemon-data ul li {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 #pokemon-dialog .pokemon-data ul li span {
   margin: 0.5rem 0;
