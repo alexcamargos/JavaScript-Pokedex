@@ -36,8 +36,10 @@ function populateDialog(pokemon) {
             pokemonInformation.classList.remove(className);
         }
     });
+    
     // Aplica as formatações de tipos.
     pokemonInformation.classList.add(`type-${pokemon.types[0]}`);
+    pokemonInformation.classList.add(`type-${pokemon.types[0]}-bg`);
 
     let pokemonName = document.getElementById('pokemon-name');
     let pokeminID = document.getElementById('pokemon-id');
