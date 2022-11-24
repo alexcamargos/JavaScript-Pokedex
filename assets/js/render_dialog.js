@@ -36,20 +36,20 @@ function populateDialog(pokemon) {
             pokemonInformation.classList.remove(className);
         }
     });
-    
+
     // Aplica as formatações de tipos.
     pokemonInformation.classList.add(`type-${pokemon.types[0]}`);
     pokemonInformation.classList.add(`type-${pokemon.types[0]}-bg`);
 
     let pokemonName = document.getElementById('pokemon-name');
-    let pokeminID = document.getElementById('pokemon-id');
+    let pokemonID = document.getElementById('pokemon-id');
     let pokemonImage = document.getElementById('pokemon-image');
     let pokemonHeight = document.getElementById('pokemon-height');
     let pokemonWeight = document.getElementById('pokemon-weight');
     let pokemonCategory = document.getElementById('pokemon-category');
 
     pokemonName.textContent = pokemon.name;
-    pokeminID.textContent = `# ${pokemon.id}`;
+    pokemonID.textContent = `# ${pokemon.id}`;
     pokemonImage.src = pokemon.image;
     pokemonHeight.textContent = `${convertDecimetersToMetres(pokemon.height)} m`;
     pokemonWeight.textContent = `${convertHectogramsToKilos(pokemon.weight)} kg`;

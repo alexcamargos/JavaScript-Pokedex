@@ -31,7 +31,10 @@ function convertPokeApiToPokemon(pokeApiData) {
     pokemon.height = pokeApiData.height;
     pokemon.weight = pokeApiData.weight;
     pokemon.species = pokeApiData.species.url;
-    pokemon.evolutionChain = pokeAPI.getEvolutionChain(pokemon.species);
+    // Set the array of evolution chain.
+    pokemon.evolutionChain = pokeAPI
+        .getEvolutionChain(pokemon.species)
+        .then((evolutionChain) => (pokemon.evolutionChain = evolutionChain));
 
     // Add the Pokemon to the list.
     pokemonsList.addPokemon(pokemon);

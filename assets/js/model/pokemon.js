@@ -26,7 +26,9 @@ class Pokemon {
         abilities,
         category,
         height,
-        weight
+        weight,
+        species,
+        evolutionChain
     ) {
         this.name = name;
         this.id = id;
@@ -42,5 +44,7 @@ class Pokemon {
         this.category = category;
         this.height = height;
         this.weight = weight;
+        this.species = species;
+        this.evolutionChain = evolutionChain;
     }
 }
