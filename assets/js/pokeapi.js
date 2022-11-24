@@ -45,16 +45,20 @@ pokeAPI.getPokemonDetail = (pokemon) => {
 };
 
 // Request the Pokemon list from PokeAPI.
-pokeAPI.getPokemons = (offset = POKEAPI_OFFSET, limit = POKEAPI_LIMIT) => {
+pokeAPI.getPokemons = async (offset = POKEAPI_OFFSET, limit = POKEAPI_LIMIT) => {
     // Requisition points to the PokeAPI.
     const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
 
-    return fetch(url)
-        .then((response) => response.json())
-        .then((data) => data.results)
-        .then((pokemons) => pokemons.map(pokeAPI.getPokemonDetail))
-        .then((detailRequests) => Promise.all(detailRequests))
-        .then((pokemonsDetails) => pokemonsDetails);
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        const pokemons = data.results;
+        const detailRequests = pokemons.map(pokeAPI.getPokemonDetail);
+        const pokemonsDetails = await Promise.all(detailRequests);
+        return pokemonsDetails;
+    } catch (error) {
+        console.error(error);
+    }
 };
 
 // Request a single Pokemon from PokeAPI.
@@ -67,6 +71,7 @@ pokeAPI.searchPokemon = (pokemonName) => {
         .then(convertPokeApiToPokemon)
         .catch((error) => {
             // If the Pokemon is not found, return null.
+            console.error(error);
             return false;
         });
 };
