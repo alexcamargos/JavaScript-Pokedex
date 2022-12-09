@@ -411,6 +411,75 @@ button:disabled, button[disabled] {
   background-size: contain;
 }
 
+@-webkit-keyframes jump {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  20% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-24px);
+    transform: translateY(-24px);
+  }
+  50% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  60% {
+    -webkit-transform: translateY(-12px);
+    transform: translateY(-12px);
+  }
+  80% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-24px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  60% {
+    transform: translateY(-12px);
+  }
+  80% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 #pokemon-dialog {
   position: fixed;
   top: 50%;
@@ -418,7 +487,6 @@ button:disabled, button[disabled] {
   transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
-  max-width: 90%;
   max-height: 90%;
   margin: 0 auto;
   padding: 2rem;
@@ -440,7 +508,7 @@ button:disabled, button[disabled] {
   margin: 0 auto;
   padding: 1rem;
   background-color: #fff;
-  min-width: 400px;
+  min-width: 350px;
   border: 1px solid #313131;
   border-radius: 0.75rem;
 }
@@ -469,11 +537,17 @@ button:disabled, button[disabled] {
   color: #fff;
   opacity: 0.6;
 }
+@media screen and (max-width: 400px) {
+  #pokemon-dialog .pokemon-information picture img {
+    width: 300px;
+  }
+}
 #pokemon-dialog .pokemon-stats {
   padding: 1rem;
   background-color: #ccc;
   border-radius: 0.5rem;
-  min-width: 350px;
+  min-width: 300px;
+  margin: 0 auto;
 }
 @media (min-width: 600px) {
   #pokemon-dialog .pokemon-stats {
@@ -533,7 +607,8 @@ button:disabled, button[disabled] {
   border-radius: 0.5rem;
   background-color: #30a7d7;
   color: #fff;
-  min-width: 350px;
+  min-width: 300px;
+  margin: 0 auto;
 }
 #pokemon-dialog .pokemon-data .title {
   margin-bottom: 1rem;
@@ -621,8 +696,8 @@ button:disabled, button[disabled] {
 
 .close-button {
   position: fixed;
-  top: 0;
-  right: 0;
+  top: -10px;
+  right: 20px;
   width: 36px;
   height: 36px;
   margin: 1rem;
