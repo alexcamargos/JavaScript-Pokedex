@@ -10,6 +10,12 @@
 // License: MIT
 // -------------------------------------------------------------------------------------------------
 
+// Pokemon types
+@import './theme/pokemon-types';
+
+// Pokemon types background
+@import './theme/pokemon-types-bg';
+
 #pokemon-dialog {
   position: fixed;
   top: 50%;
