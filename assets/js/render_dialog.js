@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 // Name: render_dialog.js
-// Version: 0.0.1
+// Version: 0.0.3
 //
 // Summary: JavaScript Pokedex
 //         Renderiza o dialog com as informações do Pokemon.
@@ -62,6 +62,28 @@ function populateDialog(pokemon) {
         let li = document.createElement('span');
         li.textContent = ability;
         pokemonAbilities.appendChild(li);
+    });
+
+    // Popula as informações da cadeia evolutiva.
+    let pokemonEvolution = document.getElementById('pokemon-evolutions-list');
+    pokemonEvolution.innerHTML = '';
+
+    // Search for the evolution chain of the Pokemon.
+    pokemon.evolutionChain.forEach((evolution) => {
+        // Do a PokeApi search for the Pokemon evolution.
+        let pokemonChain = pokeAPI.searchPokemon(evolution);
+
+        // Resolve the promise and populate the evolution chain.
+        pokemonChain
+            .then((response) => response)
+            .then((pokemon) => {
+                let li = document.createElement('li');
+                // Set the order of the Pokemon in the evolution chain.
+                li.setAttribute('style', `order: ${pokemon.id};`);
+                li.classList.add('evolution');
+                li.innerHTML += `<img src="${pokemon.image}" alt="${pokemon.name}"><span> # ${pokemon.id} - ${pokemon.name}</span>`;
+                pokemonEvolution.appendChild(li);
+            });
     });
 
     // Popula as informações dos tipos.

@@ -648,6 +648,51 @@ button:disabled, button[disabled] {
   font-size: 1.5rem;
   color: #fff;
 }
+#pokemon-dialog .pokemon-evolutions {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  min-width: 350px;
+}
+#pokemon-dialog .pokemon-evolutions .title {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+#pokemon-dialog .pokemon-evolutions ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+@media screen and (min-width: 910px) {
+  #pokemon-dialog .pokemon-evolutions ul {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+#pokemon-dialog .pokemon-evolutions ul li {
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  padding: 1rem;
+  border: 1px solid #313131;
+  border-radius: 1rem;
+  background-color: #ccc;
+}
+#pokemon-dialog .pokemon-evolutions ul li img {
+  width: 100px;
+  height: 100px;
+}
+#pokemon-dialog .pokemon-evolutions ul li span {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  text-transform: capitalize;
+  color: #1b82b1;
+}
 #pokemon-dialog .pokemon-types {
   padding: 1rem;
   border-radius: 0.5rem;
