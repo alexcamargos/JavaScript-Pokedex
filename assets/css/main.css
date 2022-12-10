@@ -669,7 +669,7 @@ button:disabled, button[disabled] {
 @media screen and (min-width: 910px) {
   #pokemon-dialog .pokemon-evolutions ul {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
   }
 }
 #pokemon-dialog .pokemon-evolutions ul li {
