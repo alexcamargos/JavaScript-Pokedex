@@ -115,7 +115,7 @@ class PokemonCard extends HTMLElement {
         // Set the styles for the component.
         let style = document.createElement('link');
         style.setAttribute('rel', 'stylesheet');
-        style.setAttribute('href', '/assets/css/pokemon-card.css');
+        style.setAttribute('href', '/assets/css/pokemon-card.min.css');
 
         return style;
     }
