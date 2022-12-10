@@ -157,6 +157,7 @@
     border-radius: 0.5rem;
     background-color: $blue;
     color: $white;
+    width: -webkit-fill-available;
     min-width: 300px;
     margin: 0 auto;
 
